@@ -1,7 +1,11 @@
 import * as grpc from "@grpc/grpc-js";
 import * as protoLoader from "@grpc/proto-loader";
 import connect from "./db/connect";
-import { findProduct, findAndUpdate, createProduct } from "./service/products.service";
+import {
+  findProduct,
+  findAndUpdate,
+  createProduct,
+} from "./service/products.service";
 
 const port: number = 3011;
 const host: string = "localhost";
@@ -24,9 +28,9 @@ const approveProduct = async (call: any, callback: any) => {
   const _id = body._id;
   const existingProduct = await findProduct({ _id });
   var product = null;
-  if(existingProduct){
+  if (existingProduct) {
     product = await findAndUpdate({ _id }, body, { new: true });
-  }else{
+  } else {
     product = await createProduct({ ...body });
   }
   if (product) {
