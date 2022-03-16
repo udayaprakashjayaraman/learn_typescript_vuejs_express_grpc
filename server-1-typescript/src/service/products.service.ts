@@ -7,7 +7,6 @@ import {
   import Product, { ProductDocument } from "../model/product.model";
   
   export function createProduct(input: DocumentDefinition<ProductDocument>) {
-    console.log("body>>", input);
     return Product.create(input);
   }
   
@@ -31,6 +30,3 @@ import {
     return Product.findOneAndUpdate(query, update, options);
   }
   
-  export function deleteProduct(query: FilterQuery<ProductDocument>) {
-    return Product.deleteOne(query);
-  }

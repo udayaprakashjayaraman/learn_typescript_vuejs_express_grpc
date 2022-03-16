@@ -32,10 +32,8 @@ function getProductHandler(req, res) {
 exports.getProductHandler = getProductHandler;
 function createProductHandler(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log("createProductHandler");
         const body = req.body;
         const product = yield (0, products_service_1.createProduct)(Object.assign({}, body));
-        console.log("product", product);
         if (product) {
             return res.send(product);
         }
@@ -47,9 +45,9 @@ function createProductHandler(req, res) {
 exports.createProductHandler = createProductHandler;
 function updateProductHandler(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const _id = (0, lodash_1.get)(req, "params._id");
+        const _id = req.body._id;
         const update = req.body;
-        const product = yield (0, products_service_1.findProduct)({ _id: _id });
+        const product = yield (0, products_service_1.findProduct)({ _id });
         if (!product) {
             return res.sendStatus(404);
         }
