@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const logger_1 = __importDefault(require("../logger"));
 function connect() {
-    const dbUri = "mongodb://localhost:27017/rest-api";
+    const dbUri = "mongodb://localhost:27017/pending-schema";
     return mongoose_1.default
         .connect(dbUri, {
         useNewUrlParser: true,

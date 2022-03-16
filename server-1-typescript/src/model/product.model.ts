@@ -10,9 +10,9 @@ export interface ProductDocument extends mongoose.Document {
 
 const ProductSchema = new mongoose.Schema(
   {
-    title: { type: String},
-    body: { type: String},
-    status: { type: String, enum: ['approved', 'pending']},
+    title: { type: String },
+    body: { type: String },
+    status: { type: String, enum: ["approved", "pending"] },
   },
   { timestamps: true }
 );

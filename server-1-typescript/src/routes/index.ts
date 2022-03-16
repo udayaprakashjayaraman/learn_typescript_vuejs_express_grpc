@@ -1,4 +1,4 @@
-import { Express, Request, Response } from "express";
+import { Express } from "express";
 import {
   createProductHandler,
   updateProductHandler,
@@ -8,7 +8,6 @@ import {
 } from "../controller/product.controller";
 
 export default function (app: Express) {
-
   app.get("/api/products", getAllProductHandler);
 
   app.get("/api/products/:_id", getProductHandler);

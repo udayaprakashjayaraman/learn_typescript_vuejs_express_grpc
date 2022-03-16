@@ -1,6 +1,7 @@
 import * as grpc from "@grpc/grpc-js";
 import * as protoLoader from "@grpc/proto-loader";
 import connect from "./db/connect";
+import log from "./logger";
 import {
   findProduct,
   findAndUpdate,
@@ -52,6 +53,6 @@ server.bindAsync(
   () => {
     server.start();
     connect();
-    console.log(`Welcome, the server is listening on port ${port}`);
+    log.info(`Approval Server listing at http://${host}:${port}`);
   }
 );

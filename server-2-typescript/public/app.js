@@ -38,6 +38,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const grpc = __importStar(require("@grpc/grpc-js"));
 const protoLoader = __importStar(require("@grpc/proto-loader"));
 const connect_1 = __importDefault(require("./db/connect"));
+const logger_1 = __importDefault(require("./logger"));
 const products_service_1 = require("./service/products.service");
 const port = 3011;
 const host = "localhost";
@@ -78,5 +79,5 @@ server.addService(product_proto.ProductsService.service, {
 server.bindAsync(`${host}:${port}`, grpc.ServerCredentials.createInsecure(), () => {
     server.start();
     (0, connect_1.default)();
-    console.log(`Welcome, the server is listening on port ${port}`);
+    logger_1.default.info(`Approval Server listing at http://${host}:${port}`);
 });

@@ -64,7 +64,7 @@ function approveProductHandler(req, res) {
         if (!product) {
             return res.sendStatus(404);
         }
-        const approveProduct = yield (0, products_service_1.findAndUpdate)({ _id }, { status: 'approved' }, { new: true });
+        const approveProduct = yield (0, products_service_1.findAndUpdate)({ _id }, { status: "approved" }, { new: true });
         if (approveProduct) {
             (0, grpc_1.approveProductGrpc)(approveProduct);
             return res.sendStatus(200);

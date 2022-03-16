@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
-import config from "config";
 import log from "../logger";
 
 function connect() {
-  const dbUri = "mongodb://localhost:27017/rest-api" as string;
+  const dbUri = "mongodb://localhost:27017/pending-schema" as string;
 
   return mongoose
     .connect(dbUri, {
