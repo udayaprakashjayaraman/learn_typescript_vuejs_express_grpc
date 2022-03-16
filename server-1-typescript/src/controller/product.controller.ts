@@ -6,6 +6,7 @@ import {
   findProduct,
   findAndUpdate,
 } from "../service/products.service";
+import {approveProductGrpc} from '../grpc';
 
 export async function getAllProductHandler(req: Request, res: Response) {
   const products = await findAllProducts();
@@ -41,7 +42,6 @@ export async function updateProductHandler(req: Request, res: Response) {
   if (!product) {
     return res.sendStatus(404);
   }
-
   const updatedProduct = await findAndUpdate({ _id }, update, { new: true });
 
   return res.send(updatedProduct);
@@ -56,6 +56,7 @@ export async function approveProductHandler(req: Request, res: Response) {
   }
   const approveProduct = await findAndUpdate({ _id }, {status: 'approved'}, { new: true });
   if(approveProduct){
+    approveProductGrpc(approveProduct);
     return res.sendStatus(200);  
   }else{
     return res.sendStatus(409);

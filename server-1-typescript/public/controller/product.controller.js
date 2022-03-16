@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.approveProductHandler = exports.updateProductHandler = exports.createProductHandler = exports.getProductHandler = exports.getAllProductHandler = void 0;
 const lodash_1 = require("lodash");
 const products_service_1 = require("../service/products.service");
+const grpc_1 = require("../grpc");
 function getAllProductHandler(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const products = yield (0, products_service_1.findAllProducts)();
@@ -65,6 +66,7 @@ function approveProductHandler(req, res) {
         }
         const approveProduct = yield (0, products_service_1.findAndUpdate)({ _id }, { status: 'approved' }, { new: true });
         if (approveProduct) {
+            (0, grpc_1.approveProductGrpc)(approveProduct);
             return res.sendStatus(200);
         }
         else {

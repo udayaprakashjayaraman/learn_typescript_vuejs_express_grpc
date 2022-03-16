@@ -7,7 +7,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const ProductSchema = new mongoose_1.default.Schema({
     title: { type: String },
     body: { type: String },
-    status: { type: String },
+    status: { type: String, enum: ['approved', 'pending'] },
 }, { timestamps: true });
 const Product = mongoose_1.default.model("Product", ProductSchema);
 exports.default = Product;
