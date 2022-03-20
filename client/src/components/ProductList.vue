@@ -93,7 +93,6 @@ export default defineComponent({
       ProductDataService.getAll()
         .then((response: ResponseData) => {
           this.products = response.data;
-          console.log(response.data);
         })
         .catch((e: Error) => {
           console.log(e);
@@ -128,7 +127,6 @@ export default defineComponent({
         .then((response: ResponseData) => {
           this.products = response.data;
           this.setActiveProduct({} as Product);
-          console.log(response.data);
         })
         .catch((e: Error) => {
           console.log(e);
