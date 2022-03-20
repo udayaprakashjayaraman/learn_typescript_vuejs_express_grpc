@@ -16,7 +16,7 @@ function approveProductGrpc(product) {
     const target = "localhost:3011";
     const client = new product_proto.ProductsService(target, grpc.credentials.createInsecure());
     client.approveProduct({ product: product }, function (err, response) {
-        console.log("Response from Approval Service >>" + response.message);
+        console.log("Response from Approval Service >>");
     });
 }
 exports.approveProductGrpc = approveProductGrpc;

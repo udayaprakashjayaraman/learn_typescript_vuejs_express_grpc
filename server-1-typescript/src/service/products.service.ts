@@ -10,8 +10,11 @@ export function createProduct(input: DocumentDefinition<ProductDocument>) {
   return Product.create(input);
 }
 
-export function findAllProducts() {
-  return Product.find({});
+export function findAllProducts(
+  query: FilterQuery<ProductDocument>,
+  options: QueryOptions = { lean: true }
+  ) {
+  return Product.find(query);
 }
 
 export function findProduct(

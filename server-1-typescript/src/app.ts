@@ -7,9 +7,11 @@ const port = 3010 as number;
 const host = "localhost" as string;
 
 const app = express();
+const cors = require('cors')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors()) // Use this after the variable declaration
 
 app.listen(port, host, () => {
   log.info(`Server listing at http://${host}:${port}`);

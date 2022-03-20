@@ -11,7 +11,6 @@ import {
 const port: number = 3011;
 const host: string = "localhost";
 var PROTO_PATH = __dirname + "/../proto/product.proto";
-console.log("PROTO_PATH", PROTO_PATH);
 
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   keepCase: false,

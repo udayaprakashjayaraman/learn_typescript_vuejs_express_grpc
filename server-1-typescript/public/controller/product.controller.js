@@ -15,7 +15,11 @@ const products_service_1 = require("../service/products.service");
 const grpc_1 = require("../grpc");
 function getAllProductHandler(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const products = yield (0, products_service_1.findAllProducts)();
+        var query = {};
+        if (req.query.title !== "") {
+            query = req.query;
+        }
+        const products = yield (0, products_service_1.findAllProducts)(query);
         return res.send(products);
     });
 }

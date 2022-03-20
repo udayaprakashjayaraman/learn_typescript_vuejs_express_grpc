@@ -23,7 +23,7 @@ function approveProductGrpc(product: any) {
   client.approveProduct(
     { product: product },
     function (err: any, response: { message: string }) {
-      console.log("Response from Approval Service >>" + response.message);
+      console.log("Response from Approval Service >>");
     }
   );
 }

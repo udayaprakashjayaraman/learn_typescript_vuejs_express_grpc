@@ -10,8 +10,10 @@ const routes_1 = __importDefault(require("./routes"));
 const port = 3010;
 const host = "localhost";
 const app = (0, express_1.default)();
+const cors = require('cors');
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
+app.use(cors()); // Use this after the variable declaration
 app.listen(port, host, () => {
     logger_1.default.info(`Server listing at http://${host}:${port}`);
     (0, connect_1.default)();

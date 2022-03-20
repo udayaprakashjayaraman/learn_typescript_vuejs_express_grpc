@@ -9,7 +9,11 @@ import {
 import { approveProductGrpc } from "../grpc";
 
 export async function getAllProductHandler(req: Request, res: Response) {
-  const products = await findAllProducts();
+  var query = {};
+  if(req.query.title !== ""){
+    query = req.query;
+  }
+  const products = await findAllProducts(query);
   return res.send(products);
 }
 

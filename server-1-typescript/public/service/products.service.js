@@ -9,8 +9,8 @@ function createProduct(input) {
     return product_model_1.default.create(input);
 }
 exports.createProduct = createProduct;
-function findAllProducts() {
-    return product_model_1.default.find({});
+function findAllProducts(query, options = { lean: true }) {
+    return product_model_1.default.find(query);
 }
 exports.findAllProducts = findAllProducts;
 function findProduct(query, options = { lean: true }) {

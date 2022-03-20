@@ -43,7 +43,6 @@ const products_service_1 = require("./service/products.service");
 const port = 3011;
 const host = "localhost";
 var PROTO_PATH = __dirname + "/../proto/product.proto";
-console.log("PROTO_PATH", PROTO_PATH);
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
     keepCase: false,
     longs: String,
